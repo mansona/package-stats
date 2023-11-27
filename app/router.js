@@ -7,5 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('package', { path: ':pkg/:from/:to' });
+  this.route('package', { path: ':pkg/:from/:to' }, function() {
+    this.route('chart', { path: ':chart'});
+  });
 });

@@ -1,14 +1,18 @@
 import { pageTitle } from 'ember-page-title';
 
-import CumalitiveChart from '../components/cumalative-chart';
-import DailyChart from '../components/daily-chart';
-import GroupedChart from '../components/grouped-chart';
+import CumalitiveChart from 'package-stats/components/cumalative-chart';
+import DailyChart from 'package-stats/components/daily-chart';
+import GroupedChart from 'package-stats/components/grouped-chart';
+import Search from 'package-stats/components/search';
+import FreshContent from 'package-stats/components/fresh-content';
+import {LinkTo} from '@ember/routing';
 
 function formatDate(date) {
   return date.toFormat('yyyy-MM-dd');
 }
 
 <template>
+  <FreshContent @for={{@model}}>
   {{pageTitle "Package"}}
   <h2>Stats for package
     {{@model.pkg}}
@@ -16,6 +20,8 @@ function formatDate(date) {
     {{formatDate @model.from}}
     to
     {{formatDate @model.to}}</h2>
+
+  <Search @pkg={{@model.pkg}} @from={{formatDate @model.from}} @to={{formatDate @model.to}}/>
 
   <section>
     <h3>Daily Downloads</h3>
@@ -40,6 +46,7 @@ function formatDate(date) {
 
   <section>
     <h3>Yearly Downloads</h3>
+    <LinkTo @route="package.chart" @model="year"> thigy </LinkTo>
     <div class="chart-container">
       <GroupedChart @data={{@model.result}} @grouping="year" />
     </div>
@@ -52,5 +59,5 @@ function formatDate(date) {
     </div>
   </section>
 
-  {{outlet}}
+  </FreshContent>
 </template>
