@@ -1,6 +1,7 @@
 import { pageTitle } from 'ember-page-title';
 
 import CumalitiveChart from '../components/cumalative-chart';
+import DailyChart from '../components/daily-chart';
 
 function formatDate(date) {
   return date.toFormat('yyyy-MM-dd');
@@ -14,9 +15,20 @@ function formatDate(date) {
     {{formatDate @model.from}}
     to
     {{formatDate @model.to}}</h2>
-  <h3>Cumalative Downloads</h3>
-  <div class="chart-container">
-    <CumalitiveChart @data={{@model.result}} />
-  </div>
+
+  <section>
+    <h3>Daily Downloads</h3>
+    <div class="chart-container">
+      <DailyChart @data={{@model.result}} />
+    </div>
+  </section>
+
+  <section>
+    <h3>Cumalative Downloads</h3>
+    <div class="chart-container">
+      <CumalitiveChart @data={{@model.result}} />
+    </div>
+  </section>
+
   {{outlet}}
 </template>
