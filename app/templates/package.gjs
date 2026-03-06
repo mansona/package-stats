@@ -2,7 +2,7 @@ import { pageTitle } from 'ember-page-title';
 
 import CumalitiveChart from '../components/cumalative-chart';
 import DailyChart from '../components/daily-chart';
-import WeeklyChart from '../components/weekly-chart';
+import GroupedChart from '../components/grouped-chart';
 
 function formatDate(date) {
   return date.toFormat('yyyy-MM-dd');
@@ -27,7 +27,21 @@ function formatDate(date) {
   <section>
     <h3>Weekly Downloads</h3>
     <div class="chart-container">
-      <WeeklyChart @data={{@model.result}} />
+      <GroupedChart @data={{@model.result}} @grouping="week" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Monthly Downloads</h3>
+    <div class="chart-container">
+      <GroupedChart @data={{@model.result}} @grouping="month" />
+    </div>
+  </section>
+
+  <section>
+    <h3>Yearly Downloads</h3>
+    <div class="chart-container">
+      <GroupedChart @data={{@model.result}} @grouping="year" />
     </div>
   </section>
 

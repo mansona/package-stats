@@ -93,14 +93,12 @@ export const options = {
           const mill = tho * tho;
           const bill = mill * tho;
 
-          if (val>bill) {
-            return this.getLabelForValue(val/bill)+'B'
-          }
-          else if (val>mill) {
-            return this.getLabelForValue(val/mill)+'M'
-          }
-          else if(val > tho) {
-            return this.getLabelForValue(val/tho)+'k'
+          if (val > bill) {
+            return this.getLabelForValue(val / bill) + 'B';
+          } else if (val > mill) {
+            return this.getLabelForValue(val / mill) + 'M';
+          } else if (val > tho) {
+            return this.getLabelForValue(val / tho) + 'k';
           }
 
           return this.getLabelForValue(val);

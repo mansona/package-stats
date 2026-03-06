@@ -4,14 +4,18 @@ import { DateTime } from 'luxon';
 
 import { modifier } from 'ember-modifier';
 
-const chartModifier = modifier((element, [rawData]) => {
+const chartModifier = modifier((element, [rawData, grouping]) => {
   const weeklyData = new Map();
   const data = [];
 
-
   rawData.forEach((e) => {
-    let startOfWeek = DateTime.fromISO(e.day).startOf('week').toFormat('yyyy-MM-dd');
-    weeklyData.set(startOfWeek, (weeklyData.get(startOfWeek) ?? 0) + e.downloads);
+    let startOfWeek = DateTime.fromISO(e.day)
+      .startOf(grouping)
+      .toFormat('yyyy-MM-dd');
+    weeklyData.set(
+      startOfWeek,
+      (weeklyData.get(startOfWeek) ?? 0) + e.downloads
+    );
   });
 
   for (let [key, value] of weeklyData) {
@@ -38,5 +42,5 @@ const chartModifier = modifier((element, [rawData]) => {
 });
 
 <template>
-  <canvas {{chartModifier @data}}></canvas>
+  <canvas {{chartModifier @data @grouping}}></canvas>
 </template>
