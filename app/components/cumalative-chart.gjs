@@ -26,7 +26,7 @@ const chartModifier = modifier((element, [rawData]) => {
   new Chart(element, {
     type: 'line',
     data: chartData,
-    options,
+    options: options(data.length),
   });
 });
 

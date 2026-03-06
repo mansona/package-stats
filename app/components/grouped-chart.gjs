@@ -37,7 +37,7 @@ const chartModifier = modifier((element, [rawData, grouping]) => {
   new Chart(element, {
     type: 'line',
     data: chartData,
-    options,
+    options: options(data.length),
   });
 });
 
