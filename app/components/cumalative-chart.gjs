@@ -1,0 +1,35 @@
+import { Chart } from 'chart.js';
+import { options } from './common-chart';
+
+import { modifier } from 'ember-modifier';
+
+const chartModifier = modifier((element, [rawData]) => {
+  const data = [];
+  let total = 0;
+  rawData.forEach((e) => {
+    total += e.downloads;
+    data.push({ x: e.day, y: total });
+  });
+
+  const chartData = {
+    labels: [],
+    datasets: [
+      {
+        data,
+        backgroundColor: '#f8dddd',
+        borderColor: '#cf1111',
+        fill: true,
+      },
+    ],
+  };
+
+  new Chart(element, {
+    type: 'line',
+    data: chartData,
+    options,
+  });
+});
+
+<template>
+  <canvas {{chartModifier @data}}></canvas>
+</template>
