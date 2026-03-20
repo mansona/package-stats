@@ -17,6 +17,8 @@ function formatDate(date) {
     to
     {{formatDate @model.to}}</h2>
 
+  <Search @pkg={{@model.pkg}} @from={{formatDate @model.from}} @to={{formatDate @model.to}}/>
+
   <section>
     <h3>Daily Downloads</h3>
     <div class="chart-container">
