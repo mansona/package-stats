@@ -1,10 +1,11 @@
 import { pageTitle } from 'ember-page-title';
 
-import CumalitiveChart from '../components/cumalative-chart';
-import DailyChart from '../components/daily-chart';
-import GroupedChart from '../components/grouped-chart';
+import CumalitiveChart from 'package-stats/components/cumalative-chart';
+import DailyChart from 'package-stats/components/daily-chart';
+import GroupedChart from 'package-stats/components/grouped-chart';
 import FreshContent from 'package-stats/components/fresh-content';
 import Search from 'package-stats/components/search';
+import { LinkTo } from '@ember/routing';
 
 function formatDate(date) {
   return date.toFormat('yyyy-MM-dd');
@@ -28,6 +29,7 @@ function formatDate(date) {
 
     <section>
       <h3>Daily Downloads</h3>
+      <LinkTo @route="package.chart" @model="day">highlight chart</LinkTo>
       <div class="chart-container">
         <DailyChart @data={{@model.result}} />
       </div>
@@ -35,6 +37,7 @@ function formatDate(date) {
 
     <section>
       <h3>Weekly Downloads</h3>
+      <LinkTo @route="package.chart" @model="week">highlight chart</LinkTo>
       <div class="chart-container">
         <GroupedChart @data={{@model.result}} @grouping="week" />
       </div>
@@ -42,6 +45,7 @@ function formatDate(date) {
 
     <section>
       <h3>Monthly Downloads</h3>
+      <LinkTo @route="package.chart" @model="month">highlight chart</LinkTo>
       <div class="chart-container">
         <GroupedChart @data={{@model.result}} @grouping="month" />
       </div>
@@ -49,6 +53,7 @@ function formatDate(date) {
 
     <section>
       <h3>Yearly Downloads</h3>
+      <LinkTo @route="package.chart" @model="year">highlight chart</LinkTo>
       <div class="chart-container">
         <GroupedChart @data={{@model.result}} @grouping="year" />
       </div>
@@ -56,6 +61,7 @@ function formatDate(date) {
 
     <section>
       <h3>Cumalative Downloads</h3>
+      <LinkTo @route="package.chart" @model="cumalative">highlight chart</LinkTo>
       <div class="chart-container">
         <CumalitiveChart @data={{@model.result}} />
       </div>
