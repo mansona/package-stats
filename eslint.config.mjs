@@ -49,6 +49,9 @@ export default defineConfig([
     languageOptions: {
       parser: babelParser,
     },
+    rules: {
+      'warp-drive/no-external-request-patterns': 'off',
+    },
   },
   {
     files: ['**/*.{js,gjs}'],
