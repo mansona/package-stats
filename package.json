@@ -92,5 +92,5 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "pnpm@10.30.1+sha256.bc8bb877378eab6a8a83114eeb6a31ef88528db4ab5570299baba8fa54da2375"
+  "packageManager": "pnpm@10.32.1+sha512.a706938f0e89ac1456b6563eab4edf1d1faf3368d1191fc5c59790e96dc918e4456ab2e67d613de1043d2e8c81f87303e6b40d4ffeca9df15ef1ad567348f2be"
 }
