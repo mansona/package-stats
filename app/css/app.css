@@ -3,3 +3,11 @@
 :root {
   font-family: system-ui, sans-serif;
 }
+
+.chart-container {
+  height: 250px;
+}
+
+.focus-chart .chart-container {
+  height: 350px;
+}
