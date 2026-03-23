@@ -2,6 +2,19 @@
 
 :root {
   font-family: system-ui, sans-serif;
+
+  /* taken from https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors */
+  --blue-900: #005595;
+  --blue-800: #0074B4;
+  --blue-700: #0085CA;
+  --blue-600: #0098DD;
+  --blue-500: #00A6EC;
+  --blue-400: #02b3ee;
+  --blue-300: #44c0f0;
+  --blue-200: #7cd2f4;
+  --blue-100: #b0e4f8;
+  --blue-50: #E0F5FC;
+  --color-primary: var(--blue-400);
 }
 
 .chart-container {
