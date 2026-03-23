@@ -5,6 +5,7 @@ import DailyChart from 'package-stats/components/daily-chart';
 import GroupedChart from 'package-stats/components/grouped-chart';
 import FreshContent from 'package-stats/components/fresh-content';
 import Search from 'package-stats/components/search';
+import YearToDateChart from 'package-stats/components/year-to-date-chart';
 import { LinkTo } from '@ember/routing';
 
 function formatDate(date) {
@@ -64,6 +65,14 @@ function formatDate(date) {
       <LinkTo @route="package.chart" @model="cumalative">highlight chart</LinkTo>
       <div class="chart-container">
         <CumalitiveChart @data={{@model.result}} />
+      </div>
+    </section>
+
+    <section>
+      <h3>Year to date Downloads</h3>
+      <LinkTo @route="package.chart" @model="year-to-date">highlight chart</LinkTo>
+      <div class="chart-container">
+        <YearToDateChart @data={{@model.result}} />
       </div>
     </section>
 

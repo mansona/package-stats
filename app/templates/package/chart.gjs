@@ -3,6 +3,7 @@ import { pageTitle } from 'ember-page-title';
 import CumalitiveChart from 'package-stats/components/cumalative-chart';
 import DailyChart from 'package-stats/components/daily-chart';
 import GroupedChart from 'package-stats/components/grouped-chart';
+import YearToDateChart from 'package-stats/components/year-to-date-chart';
 import Search from 'package-stats/components/search';
 
 function eq(a, b) {
@@ -63,6 +64,13 @@ function formatDate(date) {
       <h3>Cumalative Downloads</h3>
       <div class="chart-container">
         <CumalitiveChart @data={{@model.result}} />
+      </div>
+
+    {{else if (eq @model.chart "year-to-date")}}
+
+      <h3>Year to date Downloads</h3>
+      <div class="chart-container">
+        <YearToDateChart @data={{@model.result}} />
       </div>
 
     {{/if}}
