@@ -31,7 +31,7 @@ function formatDate(date) {
     @to={{formatDate @model.to}}
   />
 
-  <section>
+  <section class="focus-chart">
     {{#if (eq @model.chart "year")}}
       <h3>Yearly Downloads</h3>
       <div class="chart-container">
